@@ -1,8 +1,9 @@
+// 第一次比较应该是树的第0索引
+let index = 0;
+
 function diff (oldTree, newTree) {
     // patches用来存放补丁对象
     let patches = {};
-    // 第一次比较应该是树的第0索引
-    let index = 0;
     // 递归树 比较后的结果放到补丁里
     walk(oldTree, newTree, index, patches);
 
@@ -31,6 +32,8 @@ function walk(oldNode, newNode, index, patches) {
     } else {
         // 节点被替换
         current.push({ type: "REPLACE", newNode });
+        // 如果有子节点，遍历子节点
+        diffChildren(oldNode.children, newNode.children, patches);
     }
 
     // 当前元素确实有补丁存在
@@ -65,14 +68,13 @@ function diffAttr(oldAttrs, newAttrs) {
     return patch;
 }
 
-// 所有都基于一个序号来实现
-let num = 0;
-
 function diffChildren(oldChildren, newChildren, patches) {
     // 比较老的和新的
-    oldChildren.forEach((child, index) => {
-        walk(child, newChildren[index], ++num, patches);
-    });
+    if (oldChildren) {
+        oldChildren.forEach((child, i) => {
+            walk(child, newChildren[i], ++index, patches);
+        });
+    }
 }
 
 export default diff;

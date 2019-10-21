@@ -5,11 +5,12 @@ import patch from "./patch";
 
 let virtualDom = createElement("div", {}, [
     createElement("div", { class: "tip" }, ["五秒后内容变更"]),
+    createElement("div", { class: "tip" }, ["测试一下移除"]),
     createElement("ul", { class: "list" }, [
         createElement("li", { class: "item" }, ["张三"]),
         createElement("li", { class: "item" }, ["李四"]),
         createElement("li", { class: "item" }, ["王五"])
-    ])
+    ]),
 ])
 
 console.log(virtualDom);
@@ -27,7 +28,7 @@ setTimeout(() => {
         createElement("ul", { class: "list-group" }, [
             createElement("li", { class: "item active" }, ["张三三"]),
             createElement("li", { class: "item" }, ["李四四"]),
-            createElement("li", { class: "item" }, ["王五五"])
+            createElement("div", { class: "item" }, ["王五五"])
         ])
     ])
     // diff 一下两个不同的虚拟DOM

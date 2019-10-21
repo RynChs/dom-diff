@@ -12,17 +12,18 @@ function patch(node, patches) {
 
 function walk(node) {
     let current = allPatches[index++];
+    // console.log(node, current);
     let childNodes = node.childNodes;
-
-    // 先序深度优先，继续遍历递归子节点
-    childNodes.forEach(child => {
-        walk(child);
-    });
 
     if (current) {
         // 打上补丁
         doPatch(node, current);
     }
+
+    // 先序深度优先，继续遍历递归子节点
+    childNodes.forEach(child => {
+        walk(child);
+    });
 }
 
 function doPatch(node, patches) {
