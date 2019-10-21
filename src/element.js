@@ -19,7 +19,7 @@ function render(domObj) {
 
     // 2、遍历attr的属性对象，然后给创建的元素el设置属性
     for (let key in domObj.attr) {
-        if (domObj.hasOwnProperty(key)) {
+        if (domObj.attr.hasOwnProperty(key)) {
             setAttr(el, key, domObj.attr[key]);
         }
     }

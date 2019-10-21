@@ -5,9 +5,42 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.tip {
+  margin: 20px 0;
+  text-align: center;
+}
+
+ul {
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+  margin: 0 auto;
+}
+ul li {
+  list-style: none;
+}
+
+.list {
+  border: solid 1px green;
+}
+.list .item {
+  color: green;
+}
+
+.list-group {
+  border: solid 1px blue;
+}
+.list-group .item {
+  color: blue;
+}
+.list-group .active {
+  color: red;
 }
